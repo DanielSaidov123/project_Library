@@ -5,5 +5,8 @@ class User:
         self.id=id
         self.borrowed_books=[]
 
-
+    def return_users_dict(self):
+        return {"name": self.name,
+                "id":self.id,
+                "borrowed_books":self.borrowed_books}
 
