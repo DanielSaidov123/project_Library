@@ -18,35 +18,15 @@ class File(Library):
     
 
     def store(self,list_of_books):
-        with open( "list_of_books.json","w") as f:
+        with open( "list_of_books.json","a") as f:
             json.dump(list_of_books,f,indent=4)
 
-    def store(self,list_of_users):
-        with open( "list_of_users.json","w") as f:
-            json.dump(list_of_users,f,indent=3)
+    # def store(self,list_of_users):
+    #     with open( "list_of_users.json","w") as f:
+    #         json.dump(list_of_users,f,indent=3)
 
 
 
 
-b1=Book("daniel","ddddddd","1",True)
-b2=Book("sa","ssssssss","2",True)
-b3=Book("lev","gggggggg","3",True)
 
-
-u=User("daniel","1")
-l=Library()
-l.add_book(b1)
-l.add_book(b2)
-l.add_book(b3)
-
-l.add_user(u)
-l.borrow_book("1","123")
-f=File()
-# l.return_book("1","123")
-print(l.search_book("ddddddd"))
-x=l.return_list()
-y=f.fank(x)
-print(f.store(y))
-
-# print(l.__str__())
 
