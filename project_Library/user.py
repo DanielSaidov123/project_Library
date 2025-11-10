@@ -6,7 +6,5 @@ class User:
         self.borrowed_books=[]
 
 
-class Library:
-    def __init__(self):
-        pass
+
 
