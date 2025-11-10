@@ -6,6 +6,11 @@ class Library:
         self.list_of_books:list[Book]=[]
         self.list_of_users:list[User]=[]
 
+        
+    def return_list(self):
+        return self.list_of_books
+    
+
     def add_book(self,book:Book):
         self.list_of_books.append(book)
 
@@ -52,15 +57,7 @@ class Library:
             if book.author==author:
                 return f"book name-{book.title} writer-{book.author}"
 
-b=Book("daniel","ddddddd","123",True)
-u=User("daniel","1")
-l=Library()
-l.add_book(b)
-l.add_user(u)
-l.borrow_book("1","123")
-# l.return_book("1","123")
-print(l.search_book("ddddddd"))
-# print(l.__str__())
+
 
 
    
