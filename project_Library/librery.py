@@ -52,8 +52,11 @@ class Library:
             if book.author==author:
                 return f"book name-{book.title} writer-{book.author}"
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2dc13c54295b9d8a816fdcf4ac32f09b5780bdfa
 b=Book("daniel","ddddddd","123",True)
 u=User("daniel","1")
 l=Library()
