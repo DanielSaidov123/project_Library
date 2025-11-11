@@ -58,12 +58,22 @@ while choice != "8":
             list_of_dict_users=f1.data_users_builder(l1.list_of_users)
             merge_lists_user=list_of_dict_users+json_user_info
             f1.store_user(merge_lists_user)
+
+            f1.create_csv_file_of_books(merge_lists_book)
+
+            f1.create_csv_file_of_users(merge_lists_user)
         except:
             list_of_dict_books=f1.data_books_builder(l1.list_of_books)
             f1.store_book(list_of_dict_books)
 
             list_of_dict_users=f1.data_users_builder(l1.list_of_users)
             f1.store_user(list_of_dict_users)
+
+            list_book=f1.data_books_builder(l1.list_of_books)
+            f1.create_csv_file_of_books(list_book)
+
+            list_user=f1.data_users_builder(l1.list_of_users)
+            f1.create_csv_file_of_users(list_user)
 
         print("Hope you enjoyed it, see you later.")
         break
