@@ -6,7 +6,7 @@ l1=Library()
 choice = None
 while choice != "7":
 
-    print("1. Add Book\n2. Add User\n3. Borrow Book\n4. return book\n5. available books\n6. search book\n7. Save & Exit")
+    print("1. Add Book\n2. Add User\n3. Borrow Book\n4. return book\n5. available books\n6. search book\n7. get your borrowed books \n8. Save & Exit")
     choice = input("Enter your choice: ")
     if choice == "1":
         title = input("enter the name of the book you want to add: ")
@@ -33,7 +33,8 @@ while choice != "7":
     elif choice == "3":
         user_id = input("enter your ID: ")
         name_book = input("enter your book title: ")
-        if not isinstance(user_id,str) or not isinstance(name_book,str):
+        if user_id.isdigit or name_book.isdigit:
+        # if not isinstance(user_id,str) or not isinstance(name_book,str):
             print("its not type of string, enter another name\id.")
         else:
             l1.borrow_book(user_id, name_book)
@@ -42,8 +43,8 @@ while choice != "7":
     elif choice == "4":
         user_id = input("enter your ID: ")
         name_book = input("enter your book title: ")
-        if not isinstance(user_id,str) or not isinstance(name_book,str):
-            print("its not type of string, enter another name\id.")
+        if  name_book.isdigit:
+            print("its not type of string, enter another name.")
             
         else:
             l1.return_book(user_id, name_book)
@@ -60,6 +61,12 @@ while choice != "7":
             l1.search_book(author)
 
     elif choice == "7":
+        get_user_name = input("enter your user name: ")
+        li.get_list_of_user(get_user_name)
+        
+
+
+    elif choice == "8":
         f1=File()
         list_of_dict=f1.data_books_nuilder(l1.return_list())
         f1.store(list_of_dict)
