@@ -5,29 +5,22 @@ from convert_JSON import File
 l1=Library()
 choice = None
 while choice != "8":
-
+    
+    print(" ")
     print("1. Add Book\n2. Add User\n3. Borrow Book\n4. return book\n5. available books\n6. search book\n7. get your borrowed books \n8. Save & Exit")
     choice = input("Enter your choice: ")
     if choice == "1":
         title = input("enter the name of the book you want to add: ")
         author = input("enter the name of the author you want to add: ")
         isbn = input("enter the ID of the book you want to add: ")
-
-        if not isinstance(title,str) or not isinstance(author,str):
-            print("its not type of string, enter another info.")
-        else:
-            b1 = Book(title, author,isbn)
-            l1.add_book(b1)            
+        b1 = Book(title, author,isbn)
+        l1.add_book(b1)            
             
-
     elif choice == "2":
         name = input("enter your name: ")
         id = input("enter your ID: ")
-        if not isinstance(name,str) or not isinstance(id,str):
-            print("its not type of string, enter another name.")
-        else:
-            u1 = User(name, id)
-            l1.add_user(u1)
+        u1 = User(name, id)
+        l1.add_user(u1)
             
     elif choice == "3":
         user_id = input("enter your ID: ")
@@ -44,10 +37,7 @@ while choice != "8":
 
     elif choice == "6":
         author = input("enter your fevorit author: ")
-        if not isinstance(author,str):
-            print("its not type of string, enter another name.")
-        else:
-            l1.search_book(author)
+        l1.search_book(author)
 
     elif choice == "7":
         get_user_name = input("enter your user name: ")
