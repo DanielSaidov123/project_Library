@@ -31,12 +31,13 @@ class Library:
             print("user is not defind")
             return
 
-        if not book in user.borrowed_books:
-            print("the book is not in user")
+        if book in user.borrowed_books:
+            print("the book alerdy  in your books")
             return
         
         user.borrowed_books.append(book)
         book.is_available=False
+        print("the book is borrow, enjoy ")
 
     def return_book(self,user_id, book_isbn):
         book= None
@@ -61,6 +62,7 @@ class Library:
         
         user.borrowed_books.remove(book)
         book.is_available=True
+        print("the book is return, thank you") 
     
  
     def list_available_books(self):
@@ -68,7 +70,7 @@ class Library:
         for book in self.list_of_books:
             if book.is_available:
                 new_books_available.append(book)
-        return new_books_available
+        print(f"{[i.title for i in new_books_available]}")
 
     def search_book(self,author):
         for book in self.list_of_books:
@@ -78,7 +80,7 @@ class Library:
     def get_list_of_user(self,user_name):
         for user in self.list_of_users:
             if user.name==user_name:
-                print(f"the list book: {[i for i in user.borrowed_books]}")
+                print(f"the list book: {[i.title for i in user.borrowed_books]}")
                 return
 
 
