@@ -36,37 +36,46 @@ class File:
             dict_store=json.load(r)
         return dict_store
     
-    def Create_csv_file(self,list_of_books):
+    def create_csv_file_of_books(self,list_of_books):
         with open('file_books.csv', 'w', newline='') as csvfile:
             fieldnames = ['title', 'author', 'ISBN', 'is_available']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(list_of_books)
 
+    def create_csv_file_of_users(self,list_of_users):
+        with open('file_users.csv', 'w', newline='') as csvfile:
+            fieldnames = ['name', 'id', 'borrowed_books']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(list_of_users)
+    
+
      
-b1=Book("daniel","dsf","312432")
-b2=Book("dani","dsf","2432")
-b3=Book("da","sf","2432")
+# b1=Book("daniel","dsf","312432")
+# b2=Book("dani","dsf","2432")
+# b3=Book("da","sf","2432")
 
-u1=User("dd","333")
-l1=Library()
-f1=File()
-l1.add_book(b1)
-l1.add_book(b2)
-l1.add_book(b3)
-l1.add_user(u1)
-d=f1.data_books_builder(l1.list_of_books)
-a=f1.data_users_builder(l1.list_of_users)
-f1.Create_csv_file(d)
-# f1.store_book(d)
+# u1=User("dd","333")
+# l1=Library()
+# f1=File()
+# l1.add_book(b1)
+# l1.add_book(b2)
+# l1.add_book(b3)
+# l1.add_user(u1)
+# d=f1.data_books_builder(l1.list_of_books)
+# a=f1.data_users_builder(l1.list_of_users)
+# f1.create_csv_file_of_books(d)
+# f1.create_csv_file_of_users(a)
+# # f1.store_book(d)
 
-# f1.store_user(a)
+# # f1.store_user(a)
 
 
-# g=f1.read_book()
-# print(g)
-# o=f1.read_user()
-# print(o)
+# # g=f1.read_book()
+# # print(g)
+# # o=f1.read_user()
+# # print(o)
 
 
 
