@@ -1,4 +1,5 @@
 import json
+import csv
 from librery import Library
 from user import User
 from book import Book
@@ -35,20 +36,28 @@ class File:
             dict_store=json.load(r)
         return dict_store
     
-     
-# b1=Book("daniel","dsf","312432")
-# b2=Book("dani","dsf","2432")
-# b3=Book("da","sf","2432")
+    def Create_csv_file(self,list_of_books):
+        with open('file_books.csv', 'w', newline='') as csvfile:
+            fieldnames = ['title', 'author', 'ISBN', 'is_available']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(list_of_books)
 
-# u1=User("dd","333")
-# l1=Library()
-# f1=File()
-# l1.add_book(b1)
-# l1.add_book(b2)
-# l1.add_book(b3)
-# l1.add_user(u1)
-# d=f1.data_books_nuilder(l1.list_of_books)
-# a=f1.data_users_nuilder(l1.list_of_users)
+     
+b1=Book("daniel","dsf","312432")
+b2=Book("dani","dsf","2432")
+b3=Book("da","sf","2432")
+
+u1=User("dd","333")
+l1=Library()
+f1=File()
+l1.add_book(b1)
+l1.add_book(b2)
+l1.add_book(b3)
+l1.add_user(u1)
+d=f1.data_books_builder(l1.list_of_books)
+a=f1.data_users_builder(l1.list_of_users)
+f1.Create_csv_file(d)
 # f1.store_book(d)
 
 # f1.store_user(a)
