@@ -15,33 +15,54 @@ class Library:
         self.list_of_users.append(user)
 
     def borrow_book(self,user_id, book_isbn):
-        for book in self.list_of_books:
-            if book.ISBN==book_isbn:
-                if book.is_available:
-                    for user in self.list_of_users:
-                        if user.id==user_id:
-                            user.borrowed_books.append(book)
-                            book.is_available=False
-                        else:
-                            print("user is not fuond")
-                else:
-                    print("is not available")
+        book= None
+        for b in self.list_of_books:
+            if b.ISBN==book_isbn:
+                book=b
+        if book is None:
+            print("book is not defind")
+            return
+
+        user= None
+        for u in self.list_of_users:
+            if u.id==user_id:
+                user=u
+        if user is None:
+            print("user is not defind")
+            return
+
+        if not book in user.borrowed_books:
+            print("the book is not in user")
+            return
+        
+        user.borrowed_books.append(book)
+        book.is_available=False
 
     def return_book(self,user_id, book_isbn):
-        for book in self.list_of_books:
-            if book.ISBN==book_isbn:
-                book.is_available=True
-                for user in self.list_of_users:
-                    if user.id==user_id:
-                        user.borrowed_books.remove(book)
-            else:
-                print("book is not fuond, check the book_isbn")
-    
-    def __str__(self):
-        for user in self.list_of_users:
-            print(f"{user.borrowed_books}")
+        book= None
+        for b in self.list_of_books:
+            if b.ISBN==book_isbn:
+                book=b
+        if book is None:
+            print("book is not defind")
+            return
 
+        user= None
+        for u in self.list_of_users:
+            if u.id==user_id:
+                user=u
+        if user is None:
+            print("user is not defind")
+            return
+
+        if not book in user.borrowed_books:
+            print("the book is not in user")
+            return
+        
+        user.borrowed_books.remove(book)
+        book.is_available=True
     
+ 
     def list_available_books(self):
         new_books_available=[]
         for book in self.list_of_books:
@@ -52,8 +73,13 @@ class Library:
     def search_book(self,author):
         for book in self.list_of_books:
             if book.author==author:
-                return f"book name-{book.title} writer-{book.author}"
+                print(f"book name-{book.title} writer-{book.author}")
 
+    def get_list_of_user(self,user_name):
+        for user in self.list_of_users:
+            if user.name==user_name:
+                print(f"the list book: {[i for i in user.borrowed_books]}")
+                return
 
 
 
