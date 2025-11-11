@@ -62,7 +62,7 @@ while choice != "7":
 
     elif choice == "7":
         get_user_name = input("enter your user name: ")
-        li.get_list_of_user(get_user_name)
+        l1.get_list_of_user(get_user_name)
         
 
 
@@ -76,14 +76,3 @@ while choice != "7":
 
 
 
-            
-
-
-
-
-
-    elif choice == "7":
-    # save data and exit
-        break
-    else:
-        print("Invalid choice, try again.")
