@@ -4,13 +4,13 @@ from user import User
 from book import Book
 
 class File:
-    def data_books_nuilder(self,list_book:list[Book]):
+    def data_books_builder(self,list_book:list[Book]):
         new_list=[]
         for book in list_book:
             new_list.append(book.return_to_dict())
         return new_list
     
-    def data_users_nuilder(self,list_user:list[User]):
+    def data_users_builder(self,list_user:list[User]):
         new_list=[]
         for user in list_user:
             new_list.append(user.return_users_dict())
