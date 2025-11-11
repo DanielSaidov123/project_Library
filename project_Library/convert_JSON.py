@@ -3,7 +3,7 @@ from librery import Library
 from user import User
 from book import Book
 
-class File(Library):
+class File:
     def data_books_nuilder(self,list_book:list[Book]):
         new_list=[]
         for book in list_book:
