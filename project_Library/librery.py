@@ -9,10 +9,21 @@ class Library:
         return self.list_of_books
         
     def add_book(self,book:Book):
+        for bk in self.list_of_books:
+            if book.ISBN == bk.ISBN:
+                print(f"the ID {book.ISBN} already exists\n chose another name.")
+                return 
         self.list_of_books.append(book)
+        print("your book added!")
 
     def add_user(self,user:User):
+        for ur in self.list_of_users:
+            if user.id == ur.id:
+                print(f"the ID {user.id} already exists\n chose another ID.")
+                return 
         self.list_of_users.append(user)
+        print("your name added!")  
+
 
     def borrow_book(self,user_id, book_isbn):
         book= None

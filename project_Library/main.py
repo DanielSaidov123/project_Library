@@ -18,7 +18,7 @@ while choice != "8":
         else:
             b1 = Book(title, author,isbn)
             l1.add_book(b1)            
-            print("your book added!")
+            
 
     elif choice == "2":
         name = input("enter your name: ")
@@ -28,8 +28,7 @@ while choice != "8":
         else:
             u1 = User(name, id)
             l1.add_user(u1)
-            print("your name added!")  
-
+            
     elif choice == "3":
         user_id = input("enter your ID: ")
         isbn_book = input("enter your book id: ")
